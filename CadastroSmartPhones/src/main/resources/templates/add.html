@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TCC</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Smartphone</h1>
+    </div>
+
+    <h4>
+        Novo Smartphone
+    </h4>
+
+    <form th:action="@{/smartPhone/salvar}"   th:method="post" th:object="${smartphone}">
+        <div class="row">
+            
+            <div class="form-group col-md-4">
+             <label for="marca">Marca:</label>
+                <input class="form-control" id="marca" type="text" th:field="*{marca}"/>
+                <div th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></div>
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label for="memoria">Memoria:</label>
+                <input class="form-control" id="memoria" type="text" th:field="*{memoria}"/>
+                <div th:if="${#fields.hasErrors('memoria')}" th:errors="*{memoria}"></div>
+            </div>
+
+            <div class="form-group col-md-8">
+                <label for="modelo">Modelo:</label>
+                <input class="form-control" id="modelo" type="text" th:field="*{modelo}"/>
+                <div th:if="${#fields.hasErrors('modelo')}" th:errors="*{modelo}"></div>
+            </div>
+            
+            <div class="form-group col-md-8">
+                <label for="preco">Preço:</label>
+                <input class="form-control" id="preco" type="text" th:field="*{preco}"/>
+                <div th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></div>
+            </div>
+            <div class="form-group">
+            <button class="btn btn-primary" type="submit">Salvar</button>
+        </div>
+
+    </form>
+
+    <hr/>
+
+    <a class="btn btn-light" th:href="@{/smartPhone/listar}">Voltar</a>
+    
+
+    <hr/>
+    <footer class="footer">
+      
+    </footer>
+
+</div>
+</body>
+</html>
